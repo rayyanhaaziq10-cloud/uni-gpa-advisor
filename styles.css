@@ -1,0 +1,704 @@
+/* ================================
+   Uni GPA Advisor - Main Stylesheet
+   ================================ */
+
+/* Color Palette */
+:root {
+  --primary-navy: #1a2a4d;
+  --white: #ffffff;
+  --accent-blue: #2563eb;
+  --light-gray: #f8f9fa;
+  --border-gray: #e5e7eb;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+   Global Styles
+   ================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--white);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ================================
+   Navbar
+   ================================ */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--primary-navy);
+  box-shadow: var(--shadow);
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  background-color: rgba(37, 99, 235, 0.2);
+}
+
+.nav-links a.active {
+  color: var(--accent-blue);
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ================================
+   Footer
+   ================================ */
+
+footer {
+  background-color: var(--primary-navy);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border-gray);
+}
+
+footer p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+footer a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   Main Container
+   ================================ */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ================================
+   Hero Section
+   ================================ */
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--primary-navy) 0%, #2a3f6d 100%);
+  color: var(--white);
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================================
+   Buttons
+   ================================ */
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--primary-navy);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light-gray);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+  border: 2px solid var(--accent-blue);
+  background-color: transparent;
+  color: var(--accent-blue);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent-blue);
+  color: var(--white);
+}
+
+/* ================================
+   Cards
+   ================================ */
+
+.card {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-gray);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+  color: var(--primary-navy);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card p {
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ================================
+   Grid Layouts
+   ================================ */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* ================================
+   Sections
+   ================================ */
+
+section {
+  margin: 3rem 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--primary-navy);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+section h3 {
+  font-size: 1.5rem;
+  color: var(--primary-navy);
+  margin: 1.5rem 0 1rem 0;
+}
+
+/* ================================
+   Lists
+   ================================ */
+
+ul, ol {
+  margin-left: 1.5rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+li {
+  margin-bottom: 0.75rem;
+}
+
+.feature-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.feature-list li:before {
+  content: "✓";
+  color: var(--accent-blue);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* ================================
+   Step Flow
+   ================================ */
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.step {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-blue);
+}
+
+.step h4 {
+  color: var(--primary-navy);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.step-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-blue);
+  color: var(--white);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* ================================
+   GPA Tier Cards
+   ================================ */
+
+.tier-card {
+  background-color: var(--light-gray);
+  border: 2px solid var(--border-gray);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.tier-card:hover {
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-lg);
+}
+
+.tier-header {
+  background-color: var(--primary-navy);
+  color: var(--white);
+  padding: 1rem;
+  margin: -2rem -2rem 1.5rem -2rem;
+  border-radius: 6px 6px 0 0;
+}
+
+.tier-header h3 {
+  color: var(--white);
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.tier-gpa {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+.tier-content h4 {
+  color: var(--accent-blue);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.tier-content h4:first-of-type {
+  margin-top: 0;
+}
+
+.tier-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tier-list li {
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tier-list li:before {
+  content: "•";
+  color: var(--accent-blue);
+  font-weight: bold;
+  margin-top: -2px;
+}
+
+/* ================================
+   Disclaimer Banner
+   ================================ */
+
+.disclaimer {
+  background-color: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin: 2rem 0;
+  color: #92400e;
+}
+
+.disclaimer h4 {
+  margin-bottom: 0.75rem;
+  color: #b45309;
+}
+
+.disclaimer p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ================================
+   FAQ Accordion
+   ================================ */
+
+.faq-item {
+  border: 1px solid var(--border-gray);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  background-color: var(--light-gray);
+  padding: 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #e5e7eb;
+}
+
+.faq-question.active {
+  background-color: var(--primary-navy);
+  color: var(--white);
+}
+
+.faq-icon {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 1.5rem;
+  background-color: var(--white);
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.faq-answer.active {
+  display: block;
+}
+
+/* ================================
+   Chatbot Page
+   ================================ */
+
+.chatbot-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.chat-iframe-wrapper {
+  width: 100%;
+  height: 80vh;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.chat-iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.chat-instructions {
+  background-color: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.chat-troubleshooting {
+  background-color: #ede9fe;
+  border-left: 4px solid #7c3aed;
+  padding: 1rem;
+  border-radius: 4px;
+  color: #5b21b6;
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+}
+
+/* ================================
+   Utility Classes
+   ================================ */
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-light);
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--accent-blue);
+  color: var(--white);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.highlight {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-gray);
+  margin: 2rem 0;
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
+
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-question {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-answer {
+    padding: 1rem;
+  }
+
+  .chat-iframe-wrapper {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  section h2 {
+    font-size: 1.25rem;
+  }
+
+  .chat-iframe-wrapper {
+    height: 50vh;
+  }
+}
