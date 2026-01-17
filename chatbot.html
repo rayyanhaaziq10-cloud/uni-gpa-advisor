@@ -1,231 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot - Uni GPA Advisor</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni GPA Advisor - Campus chatbot</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+    <style>
+        /* --- 1. SHARED STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background-color: #F1F5F9; 
+            color: #1E293B; 
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+
+        /* --- 2. NAVBAR --- */
+        .navbar {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E2E8F0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #2563EB;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #64748B;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active { color: #2563EB; }
+
+        /* --- 3. PAGE CONTENT --- */
+        .container { 
+            max-width: 800px; 
+            margin: 60px auto; 
+            padding: 40px; 
+            text-align: center;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 800; color: #0F172A; margin-bottom: 16px; }
+        p { font-size: 1.1rem; color: #64748B; margin-bottom: 30px; }
+
+        /* --- 4. CHAT THEME --- */
+        :root {
+            --n8n-chat-primary-color: #2563EB;
+            --n8n-chat-button-background: #2563EB;
+        }
+
+        /* --- 5. 🔥 CHANGE CHAT ICON ONLY --- */
+        .n8n-chat-button {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L5 12v3l7 4 7-4v-3l-7 4.5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 24px;
+        }
+
+        .n8n-chat-button svg {
+            display: none !important;
+        }
+    </style>
 </head>
+
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <span>🎓</span> Uni GPA Advisor
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="gpa-tiers.html">GPA Tiers</a></li>
-        <li><a href="chatbot.html">Chatbot</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Page Header -->
-    <section class="chatbot-container">
-      <h1 style="color: var(--primary-navy); font-size: 2.2rem; margin-bottom: 0.5rem;">Chat with Uni GPA Advisor</h1>
-      <p style="color: var(--text-light); font-size: 1rem; max-width: 700px; margin: 0 auto 1rem;">
-        Type your GPA and your goal (e.g., full-time degree, local vs. overseas, preferred major) to get personalized guidance.
-      </p>
-    </section>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>🎓</span>
+                <span>Uni GPA Advisor</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                <li><a href="gpa-tiers.html" class="nav-link">GPA Tiers</a></li>
+                <li><a href="chatbot.html" class="nav-link active">Chatbot</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Instructions -->
-    <div class="chat-instructions">
-      <h3 style="margin-top: 0; color: var(--primary-navy);">📝 How to Get the Best Advice:</h3>
-      <ul class="feature-list">
-        <li>Share your <strong>current GPA</strong> (polytechnic, cumulative, or equivalent)</li>
-        <li>Tell us your <strong>study preference</strong> (full-time degree, part-time, exchange, etc.)</li>
-        <li>Mention your <strong>preferred location</strong> (local universities, overseas, specific countries)</li>
-        <li>Indicate your <strong>field of interest</strong> (engineering, business, healthcare, arts, etc.)</li>
-        <li>Ask about <strong>action steps</strong> to strengthen your application</li>
-      </ul>
-      <p style="color: var(--text-light); font-style: italic;">
-        💡 Tip: Be as specific as possible for the most helpful guidance.
-      </p>
-    </div>
-
-    <!-- Chat Iframe -->
-    <section>
-      <div class="chat-iframe-wrapper">
-        <!-- IMPORTANT: Replace 'PASTE_YOUR_N8N_CHAT_URL_HERE' with your actual n8n chat widget URL -->
-        <!-- Example: https://your-n8n-instance.com/form/abc123def456 -->
-        <!-- To get your n8n chat URL:
-             1. Open your n8n workflow
-             2. Click "Share" → "Chat"
-             3. Enable public access and copy the widget URL
-             4. Paste it below in the src attribute
-        -->
-        <iframe 
-          src="https://n8ngc.codeblazar.org/webhook/e0526870-3bc3-4dfc-9914-8e68363c4621/chat" 
-          title="Uni GPA Advisor Chatbot"
-          frameborder="0"
-          allow="clipboard-write"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
-
-    <!-- Troubleshooting -->
-    <div class="chat-troubleshooting">
-      <h4 style="margin-top: 0;">🔧 Troubleshooting</h4>
-      <p style="margin-bottom: 0;">
-        <strong>Chat not loading?</strong> Make sure your n8n chat widget URL is correct and the workflow is published/active. 
-        Check that the n8n instance allows public access. Try refreshing the page or clearing browser cache.
-        If issues persist, contact your administrator or try back in a few moments.
-      </p>
-    </div>
-
-    <!-- Fallback Guidance -->
-    <section style="background-color: var(--light-gray); padding: 2rem; border-radius: 8px; margin-top: 2rem; text-align: center;">
-      <h3 style="color: var(--primary-navy); margin-top: 0;">Can't access the chatbot?</h3>
-      <p style="color: var(--text-light); margin-bottom: 1.5rem;">
-        No problem! Explore our GPA tiers guide or check out the FAQ for common questions.
-      </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="gpa-tiers.html" class="btn btn-primary">View GPA Tiers</a>
-        <a href="faq.html" class="btn btn-outline">Read FAQ</a>
-      </div>
-    </section>
-
-    <!-- Disclaimer -->
-    <section style="margin-top: 3rem;">
-      <div class="disclaimer">
-        <h4>⚠️ Chatbot Disclaimer</h4>
+    <main class="container">
+        <h1>Chat with Uni GPA Advisor</h1>
         <p>
-          This chatbot provides guidance based on general patterns and is not a substitute for official university information. 
-          The bot's responses are AI-assisted but limited to the training data and workflows configured. 
-          Always verify recommendations with official university sources and speak with admission officers directly.
+            I can help you find university options based on your GPA, study preferences, and career goals.
+            Tell me your current GPA and let's explore your pathways!
         </p>
-      </div>
-    </section>
-  </main>
+        <p style="font-size: 0.9rem; color: #94A3B8;">
+            (Click the chat bubble in the bottom right corner to start)
+        </p>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>
-      <strong>Disclaimer:</strong> Uni GPA Advisor provides guidance based on typical GPA thresholds and is not a guarantee of admission. 
-      University requirements vary by institution and can change annually. Always verify current admission criteria with universities directly.
-    </p>
-    <p style="margin-top: 1rem; font-size: 0.85rem;">
-      &copy; 2026 Uni GPA Advisor. All rights reserved. | 
-      <a href="how-it-works.html">Privacy & Ethics</a>
-    </p>
-  </footer>
+    <div id="n8n-chat"></div>
 
-  <script src="app.js"></script>
-  <!DOCTYPE html>
-<html>
-<head>
-  <title>Uni GPA Advisor</title>
-  <meta charset="UTF-8" />
-</head>
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-<body>
+        createChat({
+            webhookUrl: 'https://n8ngc.codeblazar.org/webhook/39b81f4f-7c2c-442c-869f-b7671ff0ba86/chat',
+            mode: 'window',
+            showWelcomeScreen: true,
 
-<!-- Floating Button -->
-<div id="chat-button">🎓</div>
+            // ✅ THIS IS THE KEY LINE
+            buttonIcon: '🎓',
 
-<!-- Chat Box -->
-<div id="chat-box">
-  <div id="chat-header">Uni GPA Advisor</div>
-  <div id="chat-messages"></div>
-  <input id="chat-input" placeholder="Type your message and press Enter..." />
-</div>
-
-<style>
-body { font-family: Arial, sans-serif; }
-
-#chat-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1e3a8a;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-#chat-box {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 320px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.2);
-  display: none;
-  flex-direction: column;
-}
-
-#chat-header {
-  background: #1e3a8a;
-  color: white;
-  padding: 12px;
-  font-weight: bold;
-  border-radius: 12px 12px 0 0;
-}
-
-#chat-messages {
-  padding: 10px;
-  height: 260px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-
-#chat-input {
-  border: none;
-  border-top: 1px solid #ddd;
-  padding: 10px;
-  font-size: 14px;
-}
-</style>
-
-<script>
-const chatBtn = document.getElementById("chat-button");
-const chatBox = document.getElementById("chat-box");
-const chatInput = document.getElementById("chat-input");
-const chatMessages = document.getElementById("chat-messages");
-
-chatBtn.onclick = () => {
-  chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
-};
-
-chatInput.addEventListener("keydown", async (e) => {
-  if (e.key === "Enter" && chatInput.value.trim()) {
-    const msg = chatInput.value;
-    chatMessages.innerHTML += `<div><b>You:</b> ${msg}</div>`;
-    chatInput.value = "";
-
-    const response = await fetch(
-      "https://n8ngc.codeblazar.org/webhook/e0526870-3bc3-4dfc-9914-8e68363c4621/chat",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chatInput: msg })
-      }
-    );
-
-    const data = await response.json();
-    chatMessages.innerHTML += `<div><b>Advisor:</b> ${data.output}</div>`;
-  }
-});
-</script>
+            initialMessages: [
+                '👋 Hi there! I am your Uni GPA Advisor.',
+                'I help you explore university pathways based on GPA.',
+                'Tell me your GPA (0.0–4.0) and what you want to study.'
+            ],
+            i18n: {
+                en: {
+                    title: 'Uni GPA Advisor',
+                    subtitle: 'GPA Advisor',
+                    footer: 'Powered by n8n',
+                    getStarted: 'Explore GPA-based pathways!',
+                    inputPlaceholder: 'Type your GPA or question here...'
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
+
+
 
 
 
